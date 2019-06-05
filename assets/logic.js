@@ -42,13 +42,16 @@ database.ref().on("child_added", function(childSnapshot) {
     var destination = childSnapshot.val().destination;
     var time = childSnapshot.val().time;
     var frequency = childSnapshot.val().frequency;
+    var nextArrival = ;
+    var minutesAway = moment(nextArrival - moment(), "minutes");    
+    
 
     var newRow = $("<tr>").append(
         $("<td>").text(name),
         $("<td>").text(destination),
         $("<td>").text(frequency),
-        $("<td>").text(),
-        $("<td>").text(),
+        $("<td>").text(nextArrival),
+        $("<td>").text(minutesAway),
     );
     $("#train-table > tbody").append(newRow);
 });
